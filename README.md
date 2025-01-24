@@ -83,6 +83,7 @@ For any inquiries or support, please contact:
 - **Email**: [himanshu.is.dev@gmail.com]
 
 ## Output Samples
+These are some sample images, but the actual project contains more screens with more additional features. 
 
 <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;">
   <img src="https://github.com/user-attachments/assets/30ec9741-89db-4e56-99a6-85f2c48032b9" alt="Output 1" style="width: 100%;"/>
