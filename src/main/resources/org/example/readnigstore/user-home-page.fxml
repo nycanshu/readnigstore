@@ -1,14 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="$CONTROLLER_NAME$"
-            prefHeight="400.0" prefWidth="600.0" >
+<VBox alignment="TOP_CENTER" spacing="0" style="-fx-font-family: 'Roboto'; -fx-background-color: #f3f4f6; -fx-min-width: 1024px; -fx-min-height: 720px;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17.0.2-ea" fx:controller="org.example.readnigstore.Controller.UserHomePageController">
 
-</AnchorPane>
+    <!-- Horizontal Navbar at the Top -->
+    <HBox alignment="CENTER_LEFT" spacing="30" style="-fx-background-color: linear-gradient(to right, #ec4899, #f43f5e); -fx-padding: 15px 30px;">
+
+        <!-- User's Name -->
+        <Label fx:id="userNameLabel" text="Welcome, [UserFirstName]" style="-fx-text-fill: white; -fx-font-size: 18px; -fx-font-weight: bold;" />
+
+        <!-- Spacer to push the navigation buttons to the right -->
+        <Region HBox.hgrow="ALWAYS" />
+
+        <!-- Navigation Buttons with Inline CSS -->
+        <Button fx:id="home" onAction="#goToHome" text="Home" style="-fx-background-color: transparent; -fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold; -fx-padding: 10px 15px; -fx-background-radius: 15px;" />
+        <Button fx:id="allbooks" onAction="#goToBooks" text="All Books" style="-fx-background-color: transparent; -fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold; -fx-padding: 10px 15px; -fx-background-radius: 15px;" />
+        <Button fx:id="myprofile" onAction="#goToProfile" text="My Profile" style="-fx-background-color: transparent; -fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold; -fx-padding: 10px 15px; -fx-background-radius: 15px;" />
+        <Button fx:id="mycart" onAction="#goToCart" text="My Cart" style="-fx-background-color: transparent; -fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold; -fx-padding: 10px 15px; -fx-background-radius: 15px;" />
+        <Button onAction="#handleLogout" text="Logout" style="-fx-background-color: transparent; -fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold; -fx-padding: 10px 15px; -fx-background-radius: 15px;" />
+    </HBox>
+
+    <!-- Main Content for Displaying Top 5 Popular Books -->
+    <VBox alignment="TOP_CENTER" spacing="20" style="-fx-padding: 20;">
+
+        <!-- Top 5 Books Section -->
+        <VBox alignment="TOP_LEFT" spacing="10" style="-fx-padding: 20; -fx-background-color: #ffffff; -fx-border-color: lightgray; -fx-border-radius: 5px; -fx-background-radius: 5px;">
+            <Label style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #4b5563;" text="Top 5 Popular Books" />
+
+            <!-- ScrollPane to hold the book list -->
+            <ScrollPane fx:id="popularBooksScrollPane" fitToWidth="true" style="-fx-pref-height: 500px;">
+                <TilePane fx:id="popularBooksList" hgap="20" vgap="20" prefColumns="3" style="-fx-padding: 10;">
+                    <!-- Books will be dynamically added here -->
+                </TilePane>
+            </ScrollPane>
+        </VBox>
+    </VBox>
+</VBox>

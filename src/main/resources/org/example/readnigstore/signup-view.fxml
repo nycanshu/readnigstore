@@ -1,14 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="$CONTROLLER_NAME$"
-            prefHeight="400.0" prefWidth="600.0" >
+<HBox alignment="CENTER" style="-fx-font-family: 'Roboto'; -fx-background-color: #f3f4f6; -fx-min-width: 1024px; -fx-min-height: 720px;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17.0.2-ea" fx:controller="org.example.readnigstore.Controller.SignupPageViewController">
 
-</AnchorPane>
+    <!-- Left Section (Login Form) -->
+    <VBox alignment="CENTER" spacing="20" style="-fx-background-color: white; -fx-padding: 40; -fx-pref-width: 512px;">
+        <Label style="-fx-font-size: 24px; -fx-font-weight: bold;" text="Create an Account" />
+
+        <!-- First name input -->
+        <VBox alignment="TOP_LEFT" maxWidth="300" spacing="5">
+            <Label style="-fx-font-size: 12px; -fx-font-weight: bold; -fx-text-fill: #4b5563;" text="FIRST NAME" />
+            <TextField fx:id="firstNameField" promptText="First Name" style="-fx-padding: 10px; -fx-background-color: #f3f4f6; -fx-border-color: lightgray; -fx-border-radius: 20px; -fx-background-radius: 20px; -fx-prompt-text-fill: gray;" />
+        </VBox>
+
+        <!-- Last name input -->
+        <VBox alignment="TOP_LEFT" maxWidth="300" spacing="5">
+            <Label style="-fx-font-size: 12px; -fx-font-weight: bold; -fx-text-fill: #4b5563;" text="LAST NAME" />
+            <TextField fx:id="lastNameField" promptText="Last Name" style="-fx-padding: 10px; -fx-background-color: #f3f4f6; -fx-border-color: lightgray; -fx-border-radius: 20px; -fx-background-radius: 20px; -fx-prompt-text-fill: gray;" />
+        </VBox>
+
+
+        <!-- Username Input -->
+        <VBox alignment="TOP_LEFT" maxWidth="300" spacing="5">
+            <Label style="-fx-font-size: 12px; -fx-font-weight: bold; -fx-text-fill: #4b5563;" text="USERNAME" />
+            <TextField fx:id="usernameField" promptText="Username" style="-fx-padding: 10px; -fx-background-color: #f3f4f6; -fx-border-color: lightgray; -fx-border-radius: 20px; -fx-background-radius: 20px; -fx-prompt-text-fill: gray;" />
+        </VBox>
+
+        <!-- Password Input -->
+        <VBox alignment="TOP_LEFT" maxWidth="300" spacing="5">
+            <Label style="-fx-font-size: 12px; -fx-font-weight: bold; -fx-text-fill: #4b5563;" text="PASSWORD" />
+            <PasswordField fx:id="passwordField" promptText="Password" style="-fx-padding: 10px; -fx-background-color: #f3f4f6; -fx-border-color: lightgray; -fx-border-radius: 20px; -fx-background-radius: 20px; -fx-prompt-text-fill: gray;" />
+        </VBox>
+
+        <!-- Confirm Password Input -->
+        <VBox alignment="TOP_LEFT" maxWidth="300" spacing="5">
+            <Label style="-fx-font-size: 12px; -fx-font-weight: bold; -fx-text-fill: #4b5563;" text="CONFIRM PASSWORD" />
+            <TextField fx:id="confirmPasswordField" promptText="Confirm Password" style="-fx-padding: 10px; -fx-background-color: #f3f4f6; -fx-border-color: lightgray; -fx-border-radius: 20px; -fx-background-radius: 20px; -fx-prompt-text-fill: gray;" />
+        </VBox>
+
+        <!-- Sign-In Button -->
+        <Button onAction="#createAnAccount" style="-fx-background-color: #ec4899; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 10px; -fx-background-radius: 20px; -fx-min-width: 200px;" text="Create new Account" />
+
+    </VBox>
+
+    <!-- Right Section (Welcome Message and Sign-Up Button) -->
+    <VBox alignment="CENTER" spacing="15" style="-fx-background-color: linear-gradient(to right, #ec4899, #f43f5e); -fx-padding: 40; -fx-pref-width: 512px;">
+        <Label style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: white;" text="Welcome to login" />
+        <Label style="-fx-font-size: 16px; -fx-text-fill: white;" text="Already have an account?" />
+        <Button  fx:id="loginPageBack" onAction="#backToLogin" style="-fx-background-color: white; -fx-text-fill: #ec4899; -fx-font-weight: bold; -fx-padding: 10px; -fx-background-radius: 20px; -fx-min-width: 150px;" text="Login Here" />
+    </VBox>
+</HBox>

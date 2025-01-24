@@ -1,14 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="$CONTROLLER_NAME$"
-            prefHeight="400.0" prefWidth="600.0" >
+<VBox alignment="TOP_CENTER" spacing="0" style="-fx-font-family: 'Roboto'; -fx-background-color: #f3f4f6; -fx-min-width: 1024px; -fx-min-height: 720px;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.readnigstore.Controller.AdminDashboardView">
 
-</AnchorPane>
+    <!-- Horizontal Navbar at the Top -->
+    <HBox alignment="CENTER_LEFT" spacing="30" style="-fx-background-color: linear-gradient(to right, #ec4899, #f43f5e); -fx-padding: 15px 30px;">
+        <Label fx:id="adminNameLabel" style="-fx-text-fill: white; -fx-font-size: 18px; -fx-font-weight: bold;" text="Welcome, Admin [AdminFirstName]" />
+        <Region HBox.hgrow="ALWAYS" />
+        <Button fx:id="logoutButton" onAction="#handleLogout" style="-fx-background-color: transparent; -fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold; -fx-padding: 10px 15px; -fx-background-radius: 15px;" text="Logout" />
+    </HBox>
+
+    <!-- Main Content Area with Two Columns -->
+    <HBox spacing="20" style="-fx-padding: 20;">
+        <!-- Left Column for Dashboard Controls -->
+        <VBox spacing="15" style="-fx-background-color: white; -fx-padding: 20; -fx-border-color: lightgray; -fx-border-radius: 5; -fx-background-radius: 5; -fx-pref-width: 400px;">
+            <Label style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #4b5563;" text="Admin Controls" />
+
+            <!-- Button to Add New Book -->
+            <Button fx:id="addBookButton" onAction="#handleAddBook" prefHeight="38.0" prefWidth="175.0" style="-fx-background-color: #ec4899; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 10; -fx-background-radius: 5;" text="Add New Book" />
+        </VBox>
+
+        <!-- Right Column for Books List -->
+        <VBox spacing="15" style="-fx-background-color: white; -fx-padding: 20; -fx-border-color: lightgray; -fx-border-radius: 5; -fx-background-radius: 5; -fx-pref-width: 600px;">
+            <Label style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #4b5563;" text="Books Inventory" />
+
+            <!-- ScrollPane to hold the books list -->
+            <ScrollPane fx:id="booksScrollPane" fitToWidth="true" style="-fx-pref-height: 500px;">
+                <VBox fx:id="booksList" spacing="10" style="-fx-padding: 10;">
+                    <!-- Books will be dynamically added here from the backend -->
+                </VBox>
+            </ScrollPane>
+        </VBox>
+    </HBox>
+</VBox>

@@ -1,14 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="$CONTROLLER_NAME$"
-            prefHeight="400.0" prefWidth="600.0" >
+<VBox alignment="TOP_CENTER" spacing="0" style="-fx-font-family: 'Roboto'; -fx-background-color: #f3f4f6; -fx-min-width: 1024px; -fx-min-height: 720px;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17.0.2-ea" fx:controller="org.example.readnigstore.Controller.UserProfileController">
 
-</AnchorPane>
+    <!-- Horizontal Navbar at the Top -->
+    <HBox alignment="CENTER_LEFT" spacing="30" style="-fx-background-color: linear-gradient(to right, #ec4899, #f43f5e); -fx-padding: 15px 30px;">
+        <Label fx:id="userNameLabel" text="Welcome, [UserFirstName]" style="-fx-text-fill: white; -fx-font-size: 18px; -fx-font-weight: bold;" />
+        <Region HBox.hgrow="ALWAYS" />
+        <Button fx:id="home" onAction="#goToHome" text="Home" style="-fx-background-color: transparent; -fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold; -fx-padding: 10px 15px; -fx-background-radius: 15px;" />
+
+        <Button onAction="#handleLogout" text="Logout" style="-fx-background-color: transparent; -fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold; -fx-padding: 10px 15px; -fx-background-radius: 15px;" />
+    </HBox>
+
+    <!-- Main Content Area with Two Columns -->
+    <HBox spacing="20" style="-fx-padding: 20;">
+        <!-- Left Column for User Details -->
+        <VBox spacing="15" style="-fx-background-color: white; -fx-padding: 20; -fx-border-color: lightgray; -fx-border-radius: 5; -fx-background-radius: 5; -fx-pref-width: 400px;">
+            <Label style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #4b5563;" text="User Details" />
+
+            <!-- Username (non-editable) -->
+            <Label style="-fx-font-size: 14px;" text="Username:" />
+            <Label fx:id="usernameLabel" style="-fx-font-size: 14px; -fx-text-fill: #666;" text="[UserName]" />
+
+            <!-- First Name -->
+            <Label style="-fx-font-size: 14px;" text="First Name:" />
+            <TextField fx:id="firstNameField" promptText="First Name" style="-fx-padding: 10; -fx-background-color: #f3f4f6; -fx-border-color: lightgray; -fx-border-radius: 5; -fx-background-radius: 5;" />
+
+            <!-- Last Name -->
+            <Label style="-fx-font-size: 14px;" text="Last Name:" />
+            <TextField fx:id="lastNameField" promptText="Last Name" style="-fx-padding: 10; -fx-background-color: #f3f4f6; -fx-border-color: lightgray; -fx-border-radius: 5; -fx-background-radius: 5;" />
+
+            <!-- Save Changes Button -->
+            <Button fx:id="saveButton" onAction="#handleSave" text="Save Changes" style="-fx-background-color: #ec4899; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 10; -fx-background-radius: 5;" />
+        </VBox>
+
+        <!-- Right Column for Order History -->
+        <VBox spacing="15" style="-fx-background-color: white; -fx-padding: 20; -fx-border-color: lightgray; -fx-border-radius: 5; -fx-background-radius: 5; -fx-pref-width: 600px;">
+
+            <!-- HBox for Order History label and Export Button -->
+            <HBox alignment="CENTER_LEFT" spacing="10">
+                <Label style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #4b5563;" text="Order History" />
+                <Region HBox.hgrow="ALWAYS" />
+                <Button fx:id="exportToCsv" onAction="#exportToCsv" text="Export To CSV" style="-fx-background-color: #ec4899; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 10; -fx-background-radius: 5;" />
+            </HBox>
+
+
+            <!-- ScrollPane to hold the order list -->
+            <ScrollPane fx:id="orderHistoryScrollPane" fitToWidth="true" style="-fx-pref-height: 500px;">
+                <VBox fx:id="orderHistoryList" spacing="10" style="-fx-padding: 10;">
+                    <!-- Orders will be dynamically added here -->
+                </VBox>
+            </ScrollPane>
+        </VBox>
+    </HBox>
+</VBox>
